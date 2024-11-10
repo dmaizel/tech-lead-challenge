@@ -8,29 +8,38 @@ Design and implement core components of a simplified distributed log analysis sy
 
 ### Requirements
 
- 1. Log Ingestion Service
-    - **Goal:** Create a service to ingest logs from multiple sources (e.g., Kubernetes pods, Docker containers).
-    - **Key Feature:** The service should handle up to **10,000 logs per second**.
+1. Log Ingestion Service
+   - Implement a service to ingest logs from multiple sources.
+   - **Notes:**
+      - You can simulate log generation with a simple script or use existing log files.
+      - Examples of log sources include Kubernetes pods, Docker containers, AWS CloudWatch, or application-specific logs.
 
-2. Basic Log Processing Pipeline
-    - **Goal:** Implement basic log parsing and enrichment (e.g., adding metadata).
-    - **Stretch:** Standardizing formats.
+2. **Basic Log Processing Pipeline**
+   - Implement basic log parsing and enrichment.
+   - **Notes:**
+      - You can use a simple log format (e.g., timestamp, log level, message).
+      - Consider what data you'd want to extract from logs to enable efficient querying and analysis (e.g., timestamp, log level, service name).
 
-3. Query Service
-    - **Goal:** Implement a simple query API to retrieve logs based on criteria like time range and log level.
-    - **Stretch:** Include one additional feature, such as aggregation or pattern matching.
+3. **Storage and Indexing**
+   - Design a storage solution that allows for efficient querying and analysis of logs.
+   - **Notes:**
+      - Consider how to handle log retention and archiving.
 
-4. Real-time Alerting (Basic)
-    - **Goal:** Design a simple real-time alerting system.
-    - **Implementation:**
-       - Trigger alerts based on log patterns or thresholds (e.g., error logs exceeding a certain count or specific error messages appearing).
-       - Send a mock notification (e.g., print to the console, log to a file) when the alert condition is met.
+4. **Query Service**
+   - Implement a simple query API to retrieve logs based on criteria like time range and log level.
+   - **Notes:**
+      - **Optional:** Include one additional feature, such as aggregation or pattern matching.
 
-5. System Architecture
-   - **Goal:** Provide a high-level architecture diagram of the system.
-   - **Explain how the system would scale to handle increasing load.**
-   - **Discuss potential failure points and how you'd address them.**
+5. **System Architecture**
+   - Provide a high-level architecture diagram of the system.
+   - Explain how the system would scale to handle increasing load.
+   - Discuss potential failure points and how you'd address them.
 
+6. **Real-time Alerting (Optional)**
+   - Design a simple real-time alerting system.
+   - **Implementation:**
+      - Trigger alerts based on log patterns or thresholds (e.g., error logs exceeding a certain count or specific error messages appearing).
+      - Send a mock notification (e.g., print to the console, log to a file) when the alert condition is met.
 
 ## Evaluation Criteria
 - System design and architecture
