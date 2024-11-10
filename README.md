@@ -4,35 +4,33 @@
 Your company operates a large-scale microservices architecture with hundreds of services running across multiple Kubernetes clusters. The DevOps team needs a robust, scalable system to collect, analyze, and visualize logs from all these services in real-time.
 
 ## Your Task
-Design and implement the core components of a distributed log analysis system. You have 3 hours to complete as much as you can. Focus on demonstrating your system design skills, code quality, and ability to make trade-offs under time constraints.
+Design and implement core components of a simplified distributed log analysis system. You have **3 hours** to complete as much as possible. Focus on demonstrating your system design skills, code quality, and ability to make trade-offs under time constraints.
 
 ### Requirements
 
-1. Log Ingestion Service
-   - Design and implement a service that can ingest logs from multiple sources (e.g., Docker containers, Kubernetes pods, AWS CloudWatch, application-specific logs).
-   - The service should be able to handle high volumes of incoming logs (assume 10,000 logs per second).
+ 1. Log Ingestion Service
+    - **Goal:** Create a service to ingest logs from multiple sources (e.g., Kubernetes pods, Docker containers).
+    - **Key Feature:** The service should handle up to **10,000 logs per second**.
 
-2. Log Processing Pipeline
-   - Design a scalable pipeline to process incoming logs.
-   - Implement parsing and enrichment of logs (e.g., adding metadata, standardizing formats).
+2. Basic Log Processing Pipeline
+    - **Goal:** Implement basic log parsing and enrichment (e.g., adding metadata).
+    - **Stretch:** Standardizing formats.
 
-3. Storage and Indexing
-   - Design a storage solution that allows for efficient querying and analysis of logs.
-   - Consider how to handle log retention and archiving.
+3. Query Service
+    - **Goal:** Implement a simple query API to retrieve logs based on criteria like time range and log level.
+    - **Stretch:** Include one additional feature, such as aggregation or pattern matching.
 
-4. Query Service
-   - Implement a service that allows users to query logs based on various criteria (time range, service name, log level, etc.).
-   - Design and implement an API for this service.
-   - Include at least one complex query operation (e.g., aggregations, pattern matching).
+4. Real-time Alerting (Basic)
+    - **Goal:** Design a simple real-time alerting system.
+    - **Implementation:**
+       - Trigger alerts based on log patterns or thresholds (e.g., error logs exceeding a certain count or specific error messages appearing).
+       - Send a mock notification (e.g., print to the console, log to a file) when the alert condition is met.
 
-5. Real-time Alerting
-   - Design a mechanism for setting up and triggering real-time alerts based on log patterns or thresholds.
-   - Implement a basic alerting service that can send notifications (you can mock the actual sending).
+5. System Architecture
+   - **Goal:** Provide a high-level architecture diagram of the system.
+   - **Explain how the system would scale to handle increasing load.**
+   - **Discuss potential failure points and how you'd address them.**
 
-6. System Architecture
-   - Provide a high-level architecture diagram of your system.
-   - Explain how your system would scale to handle increasing load.
-   - Discuss potential failure points and how you'd address them.
 
 ## Evaluation Criteria
 - System design and architecture
