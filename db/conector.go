@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"log/slog"
 	"os"
 	"path/filepath"
 	"tech-lead-challenge/service/logparser"
@@ -60,12 +61,14 @@ func (sc *SqlConnector) Connect() error {
 }
 
 func (sc *SqlConnector) InsertLogs(ctx context.Context, logs []logparser.Log) error {
+	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
 	for _, log := range logs {
 		sqlStatement := `INSERT INTO logs (service_name, level,datecreated, data) VALUES ($1, $2, $3 ,$4)`
 		_, err := sc.DB.Exec(sqlStatement, log.ServiceName, log.Level, log.TimeStamp, log.Data)
 		if err != nil {
 			return err
 		}
+		logger.Debug("log successfuly saved to DB ", "logs entry", log)
 	}
 	return nil
 }

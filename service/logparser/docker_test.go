@@ -1,8 +1,10 @@
 package logparser
 
 import (
+	"os"
 	"testing"
 
+	ts "github.com/stretchr/testify/assert"
 	"gotest.tools/assert"
 )
 
@@ -18,3 +20,15 @@ func TestExtractLogData(t *testing.T) {
 
 }
 
+func TestParseLog(t *testing.T) {
+	file, err := os.OpenFile("/Users/chen.keinan/workspace/work/tech-lead-challenge/example/docker.log", os.O_RDONLY, os.ModePerm)
+	ts.NoError(t, err)
+	docker := Docker{}
+	parseLog, err := docker.ParseLog(file)
+	ts.NoError(t, err)
+	assert.Equal(t, parseLog[0].ServiceName, "pgadmin")
+	assert.Equal(t, parseLog[0].Data, "Startinggunicorn22.0.0")
+	assert.Equal(t, parseLog[0].Level, "INFO")
+	assert.Equal(t, parseLog[0].TimeStamp, "2024-01-02T15:04:05Z07:00")
+
+}
