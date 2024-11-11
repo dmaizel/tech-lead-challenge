@@ -13,8 +13,11 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
+	sourceType := os.Getenv("SOURCE_TYPE")
+	logLocation := os.Getenv("LOG_LOCATION")
+
 	// run service for logs ingestion
-	logingest.NewLogIngester("fs", "/Users/chen.keinan/workspace/work/tech-lead-challenge/example/docker.log", connector).ProcessLogsFromSource()
+	logingest.NewLogIngester(sourceType, logLocation, connector).ProcessLogsFromSource()
 	// run http server
 	server.StartServer(connector)
 }
