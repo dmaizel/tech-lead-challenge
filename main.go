@@ -1,7 +1,16 @@
 package main
 
-import "tech-lead-challenge/service/logingest"
+import (
+	"os"
+	"tech-lead-challenge/db"
+	"tech-lead-challenge/service/logingest"
+)
 
 func main() {
-	logingest.NewLogIngester("fs", "/Users/chen.keinan/workspace/work/tech-lead-challenge/example/docker.log").LoadLogFromSource()
+	connector := db.NewSqlConnector()
+	err := connector.Connect()
+	if err != nil {
+		os.Exit(1)
+	}
+	logingest.NewLogIngester("fs", "/Users/chen.keinan/workspace/work/tech-lead-challenge/example/docker.log",connector).LoadLogFromSource()
 }

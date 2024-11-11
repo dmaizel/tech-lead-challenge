@@ -24,9 +24,9 @@ func (d Docker) ParseLog(in *os.File) ([]Log, error) {
 		lineParts := extractLogData(line)
 		serviceName := strings.TrimSpace(lineParts[0])
 		dateCreated := strings.TrimSpace(lineParts[3])
-		level := strings.TrimSpace(lineParts[6])
+		level := strings.TrimSpace(lineParts[4])
 		var buffer bytes.Buffer
-		for i := 7; i < len(lineParts); i++ {
+		for i := 5; i < len(lineParts); i++ {
 			buffer.WriteString(lineParts[i])
 		}
 		data := buffer.String()
