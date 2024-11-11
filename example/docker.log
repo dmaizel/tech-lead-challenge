@@ -1,0 +1,7 @@
+[pgadmin]  | [2024-01-02T15:04:05Z07:00] [INFO] Starting gunicorn 22.0.0
+[pgadmin]  | [2024-01-02T15:05:05Z07:00] [INFO] Listening at: http://[::]:80 (1)
+[pgadmin]  | [2024-01-02T15:06:05Z07:00] [INFO] Using worker: gthread
+[pgadmin]  | [2024-01-02T15:07:05Z07:00] [INFO] Booting worker with pid: 113
+[pgadmin]  | [2024-01-02T15:08:05Z07:00] [INFO] Handling signal: int
+[pgadmin]  | [2024-01-02T15:09:05Z07:00] [INFO] Worker exiting (pid: 113)
+[pgadmin]  | [2024-01-02T15:10:05Z07:00] [INFO] Shutting down: Master
