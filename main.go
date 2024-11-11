@@ -13,6 +13,8 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
+	// run service for logs ingestion
 	logingest.NewLogIngester("fs", "/Users/chen.keinan/workspace/work/tech-lead-challenge/example/docker.log", connector).ProcessLogsFromSource()
+	// run http server
 	server.StartServer(connector)
 }

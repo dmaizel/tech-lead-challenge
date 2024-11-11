@@ -29,7 +29,7 @@ func (fi FsIngest) ProcessLogsFromSource() error {
 	if err != nil {
 		return err
 	}
-	logger.Debug("Persisting logs into DB")
+	logger.Debug("Persisting logs into DB", "type", logs)
 	err = fi.DBConnector.InsertLogs(context.Background(), logs)
 	if err != nil {
 		return err
