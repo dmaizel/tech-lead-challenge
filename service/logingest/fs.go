@@ -5,6 +5,7 @@ import (
 	"log/slog"
 	"os"
 	"tech-lead-challenge/db"
+	"tech-lead-challenge/service"
 	"tech-lead-challenge/service/logparser"
 )
 
@@ -29,6 +30,9 @@ func (fi FsIngest) ProcessLogsFromSource() error {
 	if err != nil {
 		return err
 	}
+	// send alerts on specific pattern
+	go service.LogAlertOnMatchMatten(service.LogPattern{service.DefaultDataPattern}, logs)
+
 	logger.Debug("Persisting logs into DB", "type", logs)
 	err = fi.DBConnector.InsertLogs(context.Background(), logs)
 	if err != nil {
