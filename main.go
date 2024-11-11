@@ -3,6 +3,7 @@ package main
 import (
 	"os"
 	"tech-lead-challenge/db"
+	"tech-lead-challenge/server"
 	"tech-lead-challenge/service/logingest"
 )
 
@@ -13,4 +14,5 @@ func main() {
 		os.Exit(1)
 	}
 	logingest.NewLogIngester("fs", "/Users/chen.keinan/workspace/work/tech-lead-challenge/example/docker.log",connector).LoadLogFromSource()
+	server.StartServer(connector)
 }
