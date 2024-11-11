@@ -1,28 +1,7 @@
-
-[postgres] | 2024-11-11 09:17:44.160 UTC [1] LOG:  starting PostgreSQL 17.0 (Debian 17.0-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
-[postgres] | 2024-11-11 09:17:44.161 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-[postgres] | 2024-11-11 09:17:44.161 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-[postgres] | 2024-11-11 09:17:44.162 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-[postgres] | 2024-11-11 09:17:44.165 UTC [23] LOG:  database system was shut down at 2024-11-11 01:24:23 UTC
-[postgres] | 2024-11-11 09:17:44.168 UTC [1] LOG:  database system is ready to accept connections
-[pgadmin]  | email config is {'CHECK_EMAIL_DELIVERABILITY': False, 'ALLOW_SPECIAL_EMAIL_DOMAINS': []}
-[pgadmin]  | NOTE: Configuring authentication for SERVER mode.
-[pgadmin]  |
-[pgadmin]  | pgAdmin 4 - Application Initialisation
-[pgadmin]  | ======================================
-[pgadmin]  |
-[pgadmin]  | postfix/postlog: starting the Postfix mail system
-[pgadmin]  | [2024-11-11 09:17:52 +0000] [1] [INFO] Starting gunicorn 22.0.0
-[pgadmin]  | [2024-11-11 09:17:52 +0000] [1] [INFO] Listening at: http://[::]:80 (1)
-[pgadmin]  | [2024-11-11 09:17:52 +0000] [1] [INFO] Using worker: gthread
-[pgadmin]  | [2024-11-11 09:17:52 +0000] [113] [INFO] Booting worker with pid: 113
-^C[postgres] | 2024-11-11 09:18:04.687 UTC [1] LOG:  received fast shutdown request
-[postgres] | 2024-11-11 09:18:04.690 UTC [1] LOG:  aborting any active transactions
-[pgadmin]  | [2024-11-11 09:18:04 +0000] [1] [INFO] Handling signal: int
-[postgres] | 2024-11-11 09:18:04.691 UTC [1] LOG:  background worker "logical replication launcher" (PID 26) exited with exit code 1
-[postgres] | 2024-11-11 09:18:04.693 UTC [21] LOG:  shutting down
-[postgres] | 2024-11-11 09:18:04.694 UTC [21] LOG:  checkpoint starting: shutdown immediate
-[postgres] | 2024-11-11 09:18:04.699 UTC [21] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.002 s, total=0.006 s; sync files=2, longest=0.002 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/196E270, redo lsn=0/196E270
-[postgres] | 2024-11-11 09:18:04.701 UTC [1] LOG:  database system is shut down
-[pgadmin]  | [2024-11-11 09:18:04 +0000] [113] [INFO] Worker exiting (pid: 113)
-[pgadmin]  | [2024-11-11 09:18:05 +0000] [1] [INFO] Shutting down: Master
+[pgadmin]  | [2024-01-02T15:04:05Z07:00] [INFO] Starting gunicorn 22.0.0
+[pgadmin]  | [2024-01-02T15:05:05Z07:00] [INFO] Listening at: http://[::]:80 (1)
+[pgadmin]  | [2024-01-02T15:06:05Z07:00] [INFO] Using worker: gthread
+[pgadmin]  | [2024-01-02T15:07:05Z07:00] [INFO] Booting worker with pid: 113
+[pgadmin]  | [2024-01-02T15:08:05Z07:00] [INFO] Handling signal: int
+[pgadmin]  | [2024-01-02T15:09:05Z07:00] [INFO] Worker exiting (pid: 113)
+[pgadmin]  | [2024-01-02T15:10:05Z07:00] [INFO] Shutting down: Master

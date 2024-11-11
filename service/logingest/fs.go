@@ -12,12 +12,13 @@ type FsIngest struct {
 }
 
 func (fi FsIngest) LoadLogFromSource() error {
-	file, err := os.ReadFile(fi.LogLocation)
+	file, err := os.OpenFile(fi.LogLocation, os.O_RDONLY, os.ModePerm)
+
 	if err != nil {
 		return err
 	}
 	parser := logparser.NewParser(fi.LogType)
-	_, err = parser.ParseLog(string(file))
+	_, err = parser.ParseLog(file)
 	if err != nil {
 		return err
 	}

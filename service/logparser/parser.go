@@ -1,7 +1,11 @@
 package logparser
 
+import (
+	"os"
+)
+
 type LogParser interface {
-	ParseLog(in string) ([]Log, error)
+	ParseLog(in *os.File) ([]Log, error)
 }
 
 func NewParser(logType string) LogParser {
