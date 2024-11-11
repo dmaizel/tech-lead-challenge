@@ -26,7 +26,7 @@ type SqlConnector struct {
 type Connector interface {
 	Connect() error
 	InsertLogs(ctx context.Context, logs []logparser.Log) error
-	FetchLogs() ([]logparser.Log, error)
+	FetchLogs(from string, to string) ([]logparser.Log, error)
 }
 
 func NewSqlConnector() Connector {
@@ -70,8 +70,9 @@ func (sc *SqlConnector) InsertLogs(ctx context.Context, logs []logparser.Log) er
 	return nil
 }
 
-func (sc *SqlConnector) FetchLogs() ([]logparser.Log, error) {
-	rows, err := sc.DB.Query("SELECT * FROM logs")
+func (sc *SqlConnector) FetchLogs(from string, to string) ([]logparser.Log, error) {
+	query := fmt.Sprintf("SELECT * FROM logs where datecreated between '%s' and '%s'", from, to)
+	rows, err := sc.DB.Query(query)
 	if err != nil {
 		return nil, err
 	}

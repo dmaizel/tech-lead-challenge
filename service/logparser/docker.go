@@ -21,7 +21,7 @@ func (d Docker) ParseLog(in *os.File) ([]Log, error) {
 		if line == "" {
 			continue
 		}
-		lineParts := extractLogData(line)
+		lineParts := d.extractLogData(line)
 		serviceName := strings.TrimSpace(lineParts[0])
 		dateCreated := strings.TrimSpace(lineParts[3])
 		level := strings.TrimSpace(lineParts[4])
@@ -45,7 +45,7 @@ func (d Docker) ParseLog(in *os.File) ([]Log, error) {
 	return logs, nil
 }
 
-func extractLogData(line string) []string {
+func (d Docker) extractLogData(line string) []string {
 	for _, i := range []string{"[", "]", "|"} {
 		line = strings.ReplaceAll(line, i, "")
 	}

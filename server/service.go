@@ -13,6 +13,11 @@ func NewLogMgr(sqlConnector db.Connector) *LogMgr {
 	return &LogMgr{SqlConnector: sqlConnector}
 }
 
-func (j *LogMgr) FetchLogs() ([]logparser.Log, error) {
-	return j.SqlConnector.FetchLogs()
+func (j *LogMgr) FetchLogs(lr LogsRequest) ([]logparser.Log, error) {
+	return j.SqlConnector.FetchLogs(lr.FromDate, lr.ToDate)
+}
+
+type LogsRequest struct {
+	FromDate string `json:"from_date"`
+	ToDate   string `json:"to_date"`
 }

@@ -14,7 +14,13 @@ func NewHandlers(service *LogMgr) *Handlers {
 }
 
 func (h Handlers) FetchLogs(w http.ResponseWriter, req *http.Request) {
-	logs, err := h.service.FetchLogs()
+	var lr LogsRequest
+	err := json.NewDecoder(req.Body).Decode(&lr)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	logs, err := h.service.FetchLogs(lr)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
