@@ -2,11 +2,11 @@ package logingest
 
 import "tech-lead-challenge/db"
 
-type Ingester interface {
-	LoadLogFromSource() error
+type IngesterService interface {
+	ProcessLogsFromSource() error
 }
 
-func NewLogIngester(sourceType string, logLocation string, conector db.Connector) Ingester {
+func NewLogIngester(sourceType string, logLocation string, conector db.Connector) IngesterService {
 	switch sourceType {
 	case "fs":
 		return &FsIngest{LogLocation: logLocation, DBConnector: conector}

@@ -13,6 +13,6 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
-	logingest.NewLogIngester("fs", "/Users/chen.keinan/workspace/work/tech-lead-challenge/example/docker.log",connector).LoadLogFromSource()
+	logingest.NewLogIngester("fs", "/Users/chen.keinan/workspace/work/tech-lead-challenge/example/docker.log", connector).ProcessLogsFromSource()
 	server.StartServer(connector)
 }

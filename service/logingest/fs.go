@@ -14,7 +14,7 @@ type FsIngest struct {
 	DBConnector db.Connector
 }
 
-func (fi FsIngest) LoadLogFromSource() error {
+func (fi FsIngest) ProcessLogsFromSource() error {
 	file, err := os.OpenFile(fi.LogLocation, os.O_RDONLY, os.ModePerm)
 	if err != nil {
 		return err

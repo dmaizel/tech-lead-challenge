@@ -17,3 +17,4 @@ func TestExtractLogData(t *testing.T) {
 	assert.Equal(t, parseLog[5], "Shutting")
 
 }
+
