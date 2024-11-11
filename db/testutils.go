@@ -20,7 +20,7 @@ func (sc *MockConnector) InsertLogs(ctx context.Context, logs []logparser.Log) e
 	return nil
 }
 
-func (sc *MockConnector) FetchLogs(from string, to string) ([]logparser.Log, error) {
+func (sc *MockConnector) FetchLogs(from string, to string, level string) ([]logparser.Log, error) {
 	return []logparser.Log{
 		{
 			ServiceName: "test",
