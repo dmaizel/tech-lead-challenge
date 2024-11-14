@@ -14,7 +14,7 @@ export type LogMetadata = {
   key: string;
   value: string;
 };
-export interface Log {
+export type Log = {
   id: string;
   message: string;
   level: LogLevel;

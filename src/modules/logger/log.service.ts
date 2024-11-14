@@ -4,7 +4,7 @@ import {
   LogCreate,
   LogCreateResponseDto,
 } from './dtos/log-create.dto';
-import { logGetByTimeRangeRequestDto, logGetByTimeRangeResponseDto } from './dtos/log-get-by-timerange.dto';
+import { logGetByTimeRangeRequestDto } from './dtos/log-get-by-timerange.dto';
 
 @Injectable()
 export class LogService {
