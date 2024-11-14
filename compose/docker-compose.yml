@@ -1,0 +1,22 @@
+name: log-service-compose
+services:
+  mongo:
+    image: mongodb/mongodb-atlas-local:7.0.14
+    ports:
+      - 27017:27017
+  rabbit:
+    image: rabbitmq:management
+    hostname: rabbit
+    ports:
+      - 5672:5672
+      - 15672:15672
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://rabbit:15672" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    logging:
+      driver: "json-file"
+      options:
+        max-file: 4
+        max-size: 5m

@@ -1,0 +1,18 @@
+# IOS
+.DS_Store
+
+# node
+npm-debug.log
+
+# webstorm
+.idea/
+.git/
+
+dist
+test
+
+# env
+.env
+test.env
+production.env
+staging.env

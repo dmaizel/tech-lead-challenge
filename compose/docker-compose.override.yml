@@ -1,0 +1,24 @@
+services:
+  log-service:
+    build:
+      context: ../
+      args:
+        NODE_VERSION: $NODE_VERSION
+    depends_on:
+      - mongo
+      - rabbit
+    links:
+      - mongo
+      - rabbit
+    env_file:
+      - .env
+      - service.env
+      - mongo.env
+      - rabbitmq.env
+    environment:
+      - MONGODB_CONNECTION_STRING=mongodb://mongo/log-service?directConnection=true
+      - RABBITMQ_URL=amqp://rabbit?heartbeat=180
+    ports:
+      - 3000:3000
+    profiles:
+      - service
