@@ -72,3 +72,18 @@ You're not expected to implement all services or features in the given timeframe
 7. Send us the link to your pull request for review.
 
 Good luck!
+
+
+
+```
+{
+ "message": "test 1",
+ "level": "info",
+ "timestamp": "Date Thu Nov 14 2024 17:01:04 GMT+0200 (Israel Standard Time)",
+ "source": {
+   "type": "http",
+    "entity": "code-scanner-service",
+    "entityInstance": "123.141.2.1"
+ }
+}
+```
