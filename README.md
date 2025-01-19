@@ -1,4 +1,4 @@
-# Tech Lead Coding Challenge: Distributed Log Analysis System
+# Software Engineer Coding Challenge: Distributed Log Analysis System
 
 ## Background
 Your company operates a large-scale microservices architecture with hundreds of services running across multiple Kubernetes clusters. The DevOps team needs a robust, scalable system to collect, analyze, and visualize logs from all these services in real-time.
@@ -60,7 +60,7 @@ Design and implement core components of a simplified distributed log analysis sy
 4. Brief presentation (5-10 minutes) of your solution, followed by a Q&A session
 
 ## Note
-You're not expected to implement all services or features in the given timeframe. As a tech lead, part of your role is to make decisions about what to prioritize given limited time and resources. Choose the components and features you believe are most critical or best demonstrate your skills and approach. Be prepared to explain your choices and discuss how you'd implement the remaining parts if given more time.
+You're not expected to implement handle all requirements or features in the given timeframe. As a software engineer, part of your role is to make decisions about what to prioritize given limited time and resources. Choose the components and features you believe are most critical or best demonstrate your skills and approach. Be prepared to explain your choices and discuss how you'd implement the remaining parts if given more time.
 
 ## Submission Instructions
 1. Fork this repository to your own GitHub account.
