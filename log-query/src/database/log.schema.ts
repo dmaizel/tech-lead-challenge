@@ -37,3 +37,5 @@ export class LogRecord extends Document {
 }
 
 export const LogSchema = SchemaFactory.createForClass(LogRecord);
+LogSchema.index({ userId: 1, timestamp: -1 });
+LogSchema.index({ userId: 1, logSource: 1, host: 1 });

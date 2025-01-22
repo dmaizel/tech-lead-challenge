@@ -170,13 +170,13 @@ Content-Type: application/json
 }
 
 ###
-### Get all logs with pagination (default limit and page)
+
 GET http://localhost:3001/logs
 
 ### Get logs with specific filters
 GET http://localhost:3001/logs?userId=companyA&env=dev
 
-### Get logs with pagination (limit 10, page 2)
+### Get logs with pagination (limit 100, page 1)
 GET http://localhost:3001/logs?userId=companyA&env=prod&limit=100&page=1
 
 ### Get logs filtered by log type and log source

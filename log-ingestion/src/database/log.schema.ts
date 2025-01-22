@@ -15,10 +15,10 @@ export class LogRecord extends Document {
   @Prop({ required: true, enum: ['info', 'error', 'debug'] })
   type: string;
 
-  @Prop({ required: true, enum: ['dev', 'stage', 'prod'], index: true })
+  @Prop({ required: true, enum: ['dev', 'stage', 'prod'] })
   env: string;
 
-  @Prop({ required: true, enum: ['http', 'db', 'system'] })
+  @Prop({ required: true, enum: ['http', 'db', 'system'], index: true })
   logSource: string;
 
   @Prop({
@@ -37,3 +37,5 @@ export class LogRecord extends Document {
 }
 
 export const LogSchema = SchemaFactory.createForClass(LogRecord);
+LogSchema.index({ userId: 1, timestamp: -1 });
+LogSchema.index({ userId: 1, logSource: 1, host: 1 });
