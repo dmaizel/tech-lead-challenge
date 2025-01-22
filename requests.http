@@ -1,0 +1,208 @@
+POST http://localhost:3000/logs/batch
+Content-Type: application/json
+
+{
+    "logs":[
+  {
+    "userId": "companyA",
+    "timestamp": "2025-01-20T12:00:00Z",
+    "host": "app",
+    "type": "info",
+    "env": "dev",
+    "logSource": "http",
+    "message": {
+      "description": "HTTP request completed",
+      "details": {
+        "statusCode": 200,
+        "ip": "192.168.1.1",
+        "duration": 123,
+        "url": "/api/v1/users",
+        "method": "GET"
+      }
+    }
+  },
+  {
+    "userId": "companyB",
+    "timestamp": "2025-01-20T12:05:00Z",
+    "host": "container",
+    "type": "error",
+    "env": "prod",
+    "logSource": "db",
+    "message": {
+      "description": "Database query failed",
+      "details": {
+        "query": "SELECT * FROM users",
+        "executionTime": 45,
+        "errorCode": "ER_NO_SUCH_TABLE",
+        "errorMessage": "Table 'users' does not exist"
+      }
+    }
+  },
+  {
+    "userId": "companyC",
+    "timestamp": "2025-01-20T12:10:00Z",
+    "host": "pod",
+    "type": "debug",
+    "env": "stage",
+    "logSource": "system",
+    "message": {
+      "description": "CPU usage exceeded threshold",
+      "details": {
+        "cpuUsage": "85%",
+        "memoryUsage": "2.5GB",
+        "diskSpace": "100GB"
+      }
+    }
+  },
+  {
+    "userId": "companyA",
+    "timestamp": "2025-01-20T12:15:00Z",
+    "host": "vm",
+    "type": "info",
+    "env": "prod",
+    "logSource": "db",
+    "message": {
+      "description": "Query executed successfully",
+      "details": {
+        "query": "INSERT INTO orders (id, total) VALUES (?, ?)",
+        "executionTime": 25,
+        "affectedRows": 1
+      }
+    }
+  },
+  {
+    "userId": "companyB",
+    "timestamp": "2025-01-20T12:20:00Z",
+    "host": "container",
+    "type": "error",
+    "env": "stage",
+    "logSource": "http",
+    "message": {
+      "description": "HTTP 500 Internal Server Error",
+      "details": {
+        "statusCode": 500,
+        "ip": "192.168.1.2",
+        "url": "/api/v1/orders",
+        "method": "POST"
+      }
+    }
+  },
+  {
+    "userId": "companyC",
+    "timestamp": "2025-01-20T12:25:00Z",
+    "host": "app",
+    "type": "debug",
+    "env": "dev",
+    "logSource": "system",
+    "message": {
+      "description": "Service restarted",
+      "details": {
+        "serviceName": "user-service",
+        "uptime": "1h 23m"
+      }
+    }
+  },
+  {
+    "userId": "companyA",
+    "timestamp": "2025-01-20T12:30:00Z",
+    "host": "vm",
+    "type": "info",
+    "env": "prod",
+    "logSource": "db",
+    "message": {
+      "description": "Query executed successfully",
+      "details": {
+        "query": "INSERT INTO orders (id, total) VALUES (?, ?)",
+        "executionTime": 25,
+        "affectedRows": 1
+      }
+    }
+  },
+  {
+    "userId": "companyB",
+    "timestamp": "2025-01-20T12:35:00Z",
+    "host": "pod",
+    "type": "error",
+    "env": "prod",
+    "logSource": "db",
+    "message": {
+      "description": "Query executed successfully",
+      "details": {
+        "query": "INSERT INTO orders (id, total) VALUES (?, ?)",
+        "executionTime": 25,
+        "affectedRows": 1
+      }
+    }
+  },
+  {
+    "userId": "companyC",
+    "timestamp": "2025-01-20T12:40:00Z",
+    "host": "app",
+    "type": "info",
+    "env": "stage",
+    "logSource": "http",
+    "message": {
+      "description": "New order created",
+      "details": {
+        "orderId": "98765",
+        "amount": 49.99,
+        "paymentMethod": "credit_card"
+      }
+    }
+  },
+  {
+    "userId": "companyA",
+    "timestamp": "2025-01-20T12:45:00Z",
+    "host": "container",
+    "type": "debug",
+    "env": "dev",
+    "logSource": "system",
+    "message": {
+      "description": "Memory usage reported",
+      "details": {
+        "usedMemory": "512MB",
+        "freeMemory": "3.5GB",
+        "totalMemory": "4GB"
+      }
+    }
+  }
+]
+}
+
+###
+
+GET http://localhost:3001/logs
+
+### Get logs with specific filters
+GET http://localhost:3001/logs?userId=companyA&env=dev
+
+### Get logs with pagination (limit 100, page 1)
+GET http://localhost:3001/logs?userId=companyA&env=prod&limit=100&page=1
+
+### Get logs filtered by log type and log source
+GET http://localhost:3001/logs?type=error&logSource=http
+
+### Get logs filtered by host and environment
+GET http://localhost:3001/logs?host=app&env=stage
+
+### Get logs filtered by multiple fields
+GET http://localhost:3001/logs?userId=companyC&type=debug&env=dev&logSource=system
+
+### Group logs by logSource
+GET http://localhost:3001/logs/aggregate?groupBy=logSource
+
+### Group logs by host
+GET http://localhost:3000/logs/aggregate?groupBy=host
+
+### Group logs by environment
+GET http://localhost:3001/logs/aggregate?groupBy=env
+
+### Group logs by type
+GET http://localhost:3001/logs/aggregate?groupBy=type
+
+### Invalid groupBy field (should return an error)
+GET http://localhost:3001/logs/aggregate?groupBy=invalidField
+
+
+
+
