@@ -19,5 +19,17 @@ services:
     depends_on:
       - mongo
 
+  log-query-service:
+    build:
+      context: ./log-query
+      dockerfile: Dockerfile
+    container_name: log-query-container
+    ports:
+      - "3001:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/logs
+    depends_on:
+      - mongo
+
 volumes:
   mongo-data:

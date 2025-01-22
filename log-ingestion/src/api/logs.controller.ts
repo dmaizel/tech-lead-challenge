@@ -4,12 +4,9 @@ import { LogsService } from './log.service';
 
 @Controller('logs')
 export class LogsController {
-  constructor(
-    private readonly logService: LogsService,
-    private readonly logger: Logger,
-  ) {}
+  constructor(private readonly logService: LogsService) {}
 
-  @Post()
+  @Post('batch')
   async ingestLogs(@Body() batchedLogs: LogBatchDto) {
     // TODO: add error handling, eg array is empty
     const proccessedLogs = await this.logService.insertLogs(batchedLogs);

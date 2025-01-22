@@ -32,7 +32,7 @@ export class LogItemDto {
   env: string;
 
   @IsString()
-  @IsEnum(['http', 'database', 'system'])
+  @IsEnum(['http', 'db', 'system'])
   logSource: string;
 
   @IsObject()
