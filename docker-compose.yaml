@@ -1,0 +1,23 @@
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: mongo-container
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  log-ingestion-service:
+    build:
+      context: ./log-ingestion
+      dockerfile: Dockerfile
+    container_name: log-ingestion-container
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/logs
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:
